@@ -12,11 +12,11 @@ nVar=3;             % Number of Decision Variables
 %doc, fa, vs
 VarSize=[1 nVar];   % Size of Decision Variables Matrix
 
-VarMin=[1   480   14];          % Lower Bound of Variables
-VarMax=[5   1000  24];          % Upper Bound of Variables
+VarMin=[1   1   1];          % Lower Bound of Variables
+VarMax=[10  10  15];          % Upper Bound of Variables
 
-VarMinF=[1   480   14];          % Lower Bound of Variables
-VarMaxF=[5   1000  24];          % Upper Bound of Variables
+VarMinF=[1   1   1];          % Lower Bound of Variables
+VarMaxF=[10  10  15];          % Upper Bound of Variables
 
 
 %% MOPSO Parameters
@@ -25,7 +25,7 @@ MaxIt=200;           % Maximum Number of Iterations
 
 nPop=200;            % Population Size
 
-nRep=100;            % Repository Size
+nRep=20;            % Repository Size
 
 w=0.5;              % Inertia Weight
 wdamp=0.99;         % Intertia Weight Damping Rate
@@ -98,12 +98,11 @@ for it=1:MaxIt % Iterate inside the limitation
         
         leader=SelectLeader(rep,beta); % get leader, return GridIndex of leader
         % get velocity of pop
-        r1 = rand(VarSize);
-        r2 = 1-r1;
-        w2 = (1-w)/2;
+        
+        % w2 = (1-w)/2;
         pop(i).Velocity = w*pop(i).Velocity ...
-            +c1*r1*w2.*(pop(i).Best.Position-pop(i).Position) ...
-            +c2*r2*w2.*(leader.Position-pop(i).Position);
+            +c1*rand(VarSize).*(pop(i).Best.Position-pop(i).Position) ...
+            +c2*rand(VarSize).*(leader.Position-pop(i).Position);
         % get new Position
         pop(i).Position = pop(i).Position + pop(i).Velocity;
         %Position to fit boundary
@@ -201,7 +200,7 @@ for it=1:MaxIt % Iterate inside the limitation
     % Plot Costs
     figure(1);
     PlotCosts(pop,rep);
-    pause(0.01);
+    pause(0.3);
     
     % Show Iteration Information
     disp(['Iteration ' num2str(it) ': Number of Rep Members = ' num2str(numel(rep))]);
