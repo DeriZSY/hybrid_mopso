@@ -4,20 +4,20 @@ close all;
 
 %% Problem Definition
 
-CostFunction=@(x) Fitness(x);      % Cost Function
+CostFunction=@(x) BKf(x);      % Cost Function
 
-nVar=3;             % Number of Decision Variables
+nVar=2;             % Number of Decision Variables
 
 % One cost function and 5 decision variables
 %doc, fa, vs
 VarSize=[1 nVar];   % Size of Decision Variables Matrix
 
-VarMin=[1   1   1];          % Lower Bound of Variables
-VarMax=[10  10  15];          % Upper Bound of Variables
 
-VarMinF=[1   1   1];          % Lower Bound of Variables
-VarMaxF=[10  10  15];          % Upper Bound of Variables
+VarMinF=[0   0 ];          % Lower Bound of Feasible Area
+VarMaxF=[5  3  ];          % Upper Bound of Feasible Area
 
+VarMin= 5 .* VarMinF;          % Lower Bound of Variables
+VarMax= 5 .* VarMaxF;          % Upper Bound of Variables
 
 %% MOPSO Parameters
 
@@ -25,7 +25,7 @@ MaxIt=200;           % Maximum Number of Iterations
 
 nPop=200;            % Population Size
 
-nRep=20;            % Repository Size
+nRep=150;            % Repository Size
 
 w=0.5;              % Inertia Weight
 wdamp=0.99;         % Intertia Weight Damping Rate
