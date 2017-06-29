@@ -16,8 +16,8 @@ VarSize=[1 nVar];   % Size of Decision Variables Matrix
 VarMinF=[0   0 ];          % Lower Bound of Feasible Area
 VarMaxF=[5  3  ];          % Upper Bound of Feasible Area
 
-VarMin= 5 .* VarMinF;          % Lower Bound of Variables
-VarMax= 5 .* VarMaxF;          % Upper Bound of Variables
+VarMin= VarMinF;          % Lower Bound of Variables
+VarMax= VarMaxF;          % Upper Bound of Variables
 
 %% MOPSO Parameters
 
@@ -61,7 +61,7 @@ pop=repmat(empty_particle,nPop,1);
 for i=1:nPop %go over all praticles and Initialize
     
     for j=1:nVar
-        pop(i).Position(j)=VarMin(j)+(VarMax(j)-VarMin(j))*rand();%initialize position
+        pop(i).Position(j)=VarMinF(j)+(VarMaxF(j)-VarMinF(j))*rand();%initialize position
     end
 
     pop(i).Velocity=zeros(VarSize);%set original velocity to 0

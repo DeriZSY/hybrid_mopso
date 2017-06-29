@@ -19,7 +19,7 @@ function particle=FindGridIndex(particle,Grid)
     particle.GridIndex=particle.GridSubIndex(1);
     for j=2:nObj
         particle.GridIndex=particle.GridIndex-1;
-        particle.GridIndex=nGrid*particle.GridIndex;
+        particle.GridIndex=1*particle.GridIndex;
         particle.GridIndex=particle.GridIndex+particle.GridSubIndex(j);
     end
     
