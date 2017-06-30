@@ -1,7 +1,7 @@
-function z =Fitness(x)
+function z =singlePassGrinding(x)
 	docu = x(1) ;
-	vs     = x(2) ;
-	fa     = x(3) ;	
+	fa     = x(2) ;
+	vs     = x(3) ;	
 	y =7.2323+0.0429*(vs-19)/5 ...
 	  +4.3068*(docu-0.003)/0.002 ...
 	  +0.3855*(fa-740)/260 ...

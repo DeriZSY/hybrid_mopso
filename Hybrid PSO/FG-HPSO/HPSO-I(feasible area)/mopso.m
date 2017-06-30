@@ -4,7 +4,7 @@ close all;
 
 %% Problem Definition
 
-CostFunction=@(x) BKf(x);      % Cost Function
+CostFunction=@(x) singlePassGrinding(x);      % Cost Function
 
 nVar=2;             % Number of Decision Variables
 
@@ -13,8 +13,8 @@ nVar=2;             % Number of Decision Variables
 VarSize=[1 nVar];   % Size of Decision Variables Matrix
 
 
-VarMinF=[0   0 ];          % Lower Bound of Feasible Area
-VarMaxF=[5  3  ];          % Upper Bound of Feasible Area
+VarMinF[1 480  14]
+VarMaxF[5 1000 24]      % Upper Bound of Feasible Area
 
 VarMin= VarMinF;          % Lower Bound of Variables
 VarMax= VarMaxF;          % Upper Bound of Variables
