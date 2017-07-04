@@ -32,7 +32,7 @@ nRep=150;            % Repository Size
 
 w=0.5;              % Inertia Weight
 wdamp=0.99;         % Intertia Weight Damping Rate
-c1=1;               % Personal Learning Coefficient
+c1=1.47;               % Personal Learning Coefficient
 c2=2;               % Global Learning Coefficient
 
 nGrid=7;            % Number of Grids per Dimension
