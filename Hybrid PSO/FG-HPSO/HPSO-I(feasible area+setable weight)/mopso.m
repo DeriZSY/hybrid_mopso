@@ -4,28 +4,29 @@ close all;
 
 %% Problem Definition
 
-CostFunction=@(x) singlePassGrinding(x);      % Cost Function
+CostFunction=@(x) BKf(x);      % Cost Function
 
-nVar=3;             % Number of Decision Variables
+nVar=2;             % Number of Decision Variables
 
 % One cost function and 5 decision variables
 %doc, fa, vs
 VarSize=[1 nVar];   % Size of Decision Variables Matrix
 
 
-VarMinF=[0.001 480  14];          % Lower Bound of Feasible Area
-VarMaxF=[0.005 1000 24];          % Upper Bound of Feasible Area
+VarMinF=[0   0 ];          % Lower Bound of Variables
+VarMaxF=[5   3 ];          % Upper Bound of Variables
+
 
 VarMin= VarMinF;          % Lower Bound of Variables
 VarMax= VarMaxF;          % Upper Bound of Variables
 
 %% MOPSO Parameters
 
-MaxIt=100;           % Maximum Number of Iterations
+MaxIt=200;           % Maximum Number of Iterations
 
 nPop=200;            % Population Size
 
-nRep=50;            % Repository Size
+nRep=150;            % Repository Size
 
 w=0.5;              % Inertia Weight
 wdamp=0.99;         % Intertia Weight Damping Rate
@@ -37,7 +38,7 @@ alpha=0.1;          % Inflation Rate
 
 beta=2;             % Leader Selection Pressure
 gamma=2;            % Deletion Selection Pressure
-epsilon = 1;        % Relative Weight on each function
+epsilon = 7;        % Relative Weight on each function
 
 mu=0.3;             % Mutation Rate
 

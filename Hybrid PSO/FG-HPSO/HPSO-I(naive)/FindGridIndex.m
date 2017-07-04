@@ -1,4 +1,4 @@
-function particle=FindGridIndex(particle,Grid)
+function particle=FindGridIndex(particle,Grid,epsilon)
 % find the index of a particle bounded by a square
 % each column in one row represent coordinate in each axis
     nObj=numel(particle.Cost);
@@ -19,8 +19,8 @@ function particle=FindGridIndex(particle,Grid)
     particle.GridIndex=particle.GridSubIndex(1);
     for j=2:nObj
         particle.GridIndex=particle.GridIndex-1;
-        particle.GridIndex=nGrid*particle.GridIndex;
-        particle.GridIndex=particle.GridIndex+particle.GridSubIndex(j);
+        % particle.GridIndex=particle.GridIndex + epsilon*abs(particle.GridIndex-particle.GridSubIndex(j));
+        particle.GridIndex=epsilon * particle.GridIndex+particle.GridSubIndex(j);
     end
     
 end
