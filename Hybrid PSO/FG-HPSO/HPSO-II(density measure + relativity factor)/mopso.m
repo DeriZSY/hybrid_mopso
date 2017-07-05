@@ -40,9 +40,10 @@ alpha=0.1;          % Inflation Rate
 
 beta=2;             % Leader Selection Pressure
 gamma=2;            % Deletion Selection Pressure
-epsilon = 1;        % Relative Weight on each function
+epsilon = [1 1];        % Relative Weight on each function
+delta  = 1;         % Relativity Between Objective Functions  
 
-mu=0.4;             % Mutation Rate
+mu=0.3;             % Mutation Rate
 
 %% Initialization
 
@@ -88,9 +89,9 @@ pop=DetermineDomination(pop);%set pop.IsDominated
 rep=pop(~[pop.IsDominated]);%rep = is not dominated
 
 Grid=CreateGrid(rep,nGrid,alpha); % for not dominated, put into rep and create Grid
-
+meanCost = mean([rep.Cost],2); % find mean cost of each function 
 for i=1:numel(rep)
-    rep(i)=FindGridIndex(rep(i),Grid,epsilon);
+    rep(i)=FindGridIndex(rep(i),Grid,epsilon,delta,meanCost);
 end
 
 
@@ -127,7 +128,7 @@ for it=1:MaxIt % Iterate inside the limitation
         % Apply Mutation
         % it is iteration times 
         pm=(1-(it-1)/(MaxIt-1))^(1/mu);
-        if rand<pm
+        if 100<pm
 
 
 
@@ -191,8 +192,9 @@ for it=1:MaxIt % Iterate inside the limitation
     Grid=CreateGrid(rep,nGrid,alpha);
 
     % Update Grid Index for repository
+    meanCost = mean([rep.Cost],2); % find mean cost of each function 
     for i=1:numel(rep)
-        rep(i)=FindGridIndex(rep(i),Grid,epsilon);
+        rep(i)=FindGridIndex(rep(i),Grid,epsilon,delta,meanCost);
     end
     
     % Check if Repository is Full

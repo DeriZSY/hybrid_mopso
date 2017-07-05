@@ -1,4 +1,5 @@
 function leader=FindOptima(rep,beta)
+    rep=rep([rep.CF]);
     rep=DetermineDomination(rep);%set rep.IsDominated
 
     rep=rep(~[rep.IsDominated]);%rep = non-dominated particles in repository

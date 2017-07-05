@@ -217,6 +217,13 @@ end
 hold on;
 optima = FindOptima(rep,beta);
 plot(optima.Cost(1,:),optima.Cost(2,:),'bs','MarkerSize',15);
+% disp('Final Optima is ' num2str(optima.Position(1)) ' and ' num2str(optima.Position(2))  ' The final cost, f1 is ' num2str(optima.Cost(1)) ' f2 is ' num2str(optima.Cost(2))]);
+% disp(['Grid SubIndex of final optima is ' num2str(optima.GirdSubIndex(1)) ' and ' num2str(optima.GirdSubIndex(2))]);
+fprintf('Final Optima:\nx: %d\ny: %d\n',optima.Position(1),optima.Position(2));
+fprintf('Cost functions:\nf1: %d\nf2: %d\n',optima.Cost(1),optima.Cost(2));
+fprintf('Grid Index: %d\nGrid SubIndex%d (x) and %d (y)\n',optima.GridIndex(1),optima.GridSubIndex);
+xlim([0 150]);
+ylim([0 50]);   
    
 
 %% Resluts

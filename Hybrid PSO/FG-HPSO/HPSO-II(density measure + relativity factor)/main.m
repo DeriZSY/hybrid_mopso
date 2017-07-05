@@ -1,0 +1,2 @@
+% Run MOPSO
+mopso;
