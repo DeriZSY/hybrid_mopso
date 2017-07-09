@@ -1,3 +1,0 @@
-% Run MOPSO
-mopso;
- 
