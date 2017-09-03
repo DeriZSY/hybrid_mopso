@@ -30,3 +30,5 @@ The finest matlab code presents on the internet is a MOPSO code which uses super
 
 9.	Konstantinos E. Parsopoulos and Michael N. Vrahatis. Particle swarm optimization method in multiobjective problems. In Proceedings of the 2002 ACM Symposium on Applied Computing (SAC’2002), pages 603– 607, Madrid, Spain, 2002. ACM Press.  
 10.	 U. Baumgartner, Ch. Magele, and W. Renhart. Pareto optimality and particle swarm optimization. IEEE Transactions on Magnetics, 40(2):1172–1175, March 2004.
+
+*test*
