@@ -20,7 +20,7 @@ CostFunction=@(x) Fitness(x,VarMinF,VarMaxF);      % Cost Function
 
 %% MOPSO Parameters
 
-MaxIt=20;           % Maximum Number of Iterations
+MaxIt=100;           % Maximum Number of Iterations
 
 nPop=100;            % Population Size
 

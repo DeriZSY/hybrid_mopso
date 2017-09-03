@@ -28,9 +28,10 @@ MOPSO using superposition method and basic, non-variant coeeficient.
 # Reference
 Original Codes from : https://www.mathworks.com/matlabcentral/fileexchange/52870-multi-objective-particle-swarm-optimization--mopso-
 
-More detaied description will be presented in technical document (which by now, may still reamianed unfinished). 
+More detaied description will be presented in technical document (which by now, may still reamianed unfinished).
 
 You are welcome to contact me for any problems at:
 derizsy@foxmail.com
 
 *new test on fork*
+*test 2*
