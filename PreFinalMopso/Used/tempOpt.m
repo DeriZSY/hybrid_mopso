@@ -1,6 +1,10 @@
 function optima=tempOpt(rep,meanCost)
 % Find optima solution from a set of solutions
 
+  global cSum1;
+  global cSum2;
+  global cEq1;
+  global cEq2;
     rep=rep([rep.CF]);
     rep=DetermineDomination(rep);
     rep=rep(~[rep.IsDominated]);
