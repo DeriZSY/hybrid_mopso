@@ -1,28 +1,33 @@
-function position = Mutate(x,pm,VarMin,VarMax)
+function position = Mutate(x,pm)
 % function for applying mutation
-    nVar=numel(x);
-    j=randi([1 nVar]);
-    VarMin = VarMin(j);
-    VarMax = VarMax(j);
+    global VarMinF;
+    global VarMaxF;
 
-    dx=pm*(VarMax-VarMin); % difference of pm*VarBound
-    % lower bound = x - difference
-    lb=x(j)-dx;
-    if lb<VarMin
-        lb=VarMin;
-    end
-    % upper bound = x + difference
-    ub=x(j)+dx;
-    if ub>VarMax
-        ub=VarMax;
+    nVar = numel(x);
+    j    = randi([1 nVar]);
+    VarMin = VarMinF(j);
+    VarMax = VarMaxF(j);
+
+    dx = pm * (VarMax - VarMin);
+
+    lb = x(j) - dx;
+    if lb < VarMin
+        lb = VarMin;
     end
 
-    pJ = unifrnd(lb,ub);
-    pJInt = floor(pJ);
-    if pJ - pJInt > 0.5
-        pJInt = pJInt + 1;
+    ub = x(j) + dx;
+    if ub > VarMax
+        ub = VarMax;
     end
-    x(j) = pJInt;
+
+    posJ = unifrnd(lb,ub);
+    posJn = floor(posJ);
+
+    if posJ - posJn > 0.5
+        posJ = posJ + 1;
+    end
+
+    x(j) = posJ;
     position = x;
 
 end

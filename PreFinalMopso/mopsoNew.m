@@ -31,9 +31,9 @@ global cSum2;
 global cEq1;
 global cEq2;
 
-MaxIt=20;           % Maximum Number of Iterations
-PopNum=50;            % Population Size
-nRep=20;             % Repository Size
+MaxIt=80;           % Maximum Number of Iterations
+PopNum=20;            % Population Size
+nRep=80;             % Repository Size
 
 w1  = 0.9;              % Initial Inertia Weight
 w2  = 0.4;              % Final Inertia Weight
@@ -48,8 +48,8 @@ alpha = 0.1;          % Inflation Rate
 beta  = 2;             % Leader Selection Pressure
 gamma = 2;            % Deletion Selection Pressure
 
-mu1 = 0;             % Starting Mutation Rate
-mu2 = 0;             % Ending Mutation Rate
+mu1 = 0.9;             % Starting Mutation Rate
+mu2 = 0.2;             % Ending Mutation Rate
 
 %% Initialization
 empty_particle.Position=[];
@@ -68,55 +68,58 @@ popNew = repmat(empty_particle,PopNum,1);
 
 %% Initialize Particles
 it = 1;
-flag = 0;
-for itInit = 1:80000
-    i = 1;
-    fprintf('Initializing NUMBER : %d\n',itInit)
-    while(i < 100)
-        %Initialize Position
-        for j = 1 : nVar
-            pop(i).Position(j)=randi([VarMinF(j) VarMaxF(j)],1,1);
-        end%end position Init
+% flag = 0;
+% for itInit = 1:80000
+%     i = 1;
+%     fprintf('Initializing NUMBER : %d\n',itInit)
+%     while(i < 100)
+%         %Initialize Position
+%         for j = 1 : nVar
+%             pop(i).Position(j)=randi([VarMinF(j) VarMaxF(j)],1,1);
+%         end%end position Init
 
-       %Initialize Feasibility
-        pop(i).CF = fesibJudge(pop(i));
-        i = i+1;
-    end%end while
+%        %Initialize Feasibility
+%         pop(i).CF = fesibJudge(pop(i));
+%         i = i+1;
+%     end%end while
 
-    if flag == 0
-        popNew = pop([pop.CF]>0);
-        flag = flag+1;
-    else
-        popNew = [popNew;pop([pop.CF]>0)];
-    end% end if
-        nPop = numel(popNew);
+%     if flag == 0
+%         popNew = pop([pop.CF]>0);
+%         flag = flag+1;
+%     else
+%         popNew = [popNew;pop([pop.CF]>0)];
+%     end% end if
+%         nPop = numel(popNew);
 
-    if nPop > PopNum
-        break;
-    end% end if
-end% end for
+%     if nPop > PopNum
+%         break;
+%     end% end if
+% end% end for
 
 
 
-pop = popNew;
-nPop = numel(popNew);
+% pop = popNew;
+% nPop = numel(popNew);
 
-i = 1;
-for i = 1: nPop
-    pop(i).Velocity=zeros(VarSize);
-    %Evaluate Cost
-    x = pop(i).Position;
-    pop(i).Cost=CostFunction(x);
+% i = 1;
+% for i = 1: nPop
+%     pop(i).Velocity=zeros(VarSize);
+%     %Evaluate Cost
+%     x = pop(i).Position;
+%     pop(i).Cost=CostFunction(x);
 
-    %Initialize Feasibility
-    pop(i).CF = fesibJudge(pop(i));
-    % Update Personal Best
-    pop(i).Best.Position=pop(i).Position;
-    pop(i).Best.Cost=pop(i).Cost;
-    pop(i).Best.CF = fesibJudge(pop(i));
-    pop(i).Best.PF = pop(i).CF;
-end
+%     %Initialize Feasibility
+%     pop(i).CF = fesibJudge(pop(i));
+%     % Update Personal Best
+%     pop(i).Best.Position=pop(i).Position;
+%     pop(i).Best.Cost=pop(i).Cost;
+%     pop(i).Best.CF = fesibJudge(pop(i));
+%     pop(i).Best.PF = pop(i).CF;
+% end
 %% Determine Domination and update the repository
+load pop;
+pop = pop(1:100);
+nPop = numel(pop);
 
 pop = DetermineDomination(pop);% set pop.IsDominated
 
@@ -131,6 +134,7 @@ for i=1:numel(rep)
     rep(i)=FindGridIndex(rep(i),Grid,rep);
 end
 
+fprintf('END1\n');
 
 
 %% MOPSO Main Loop
@@ -146,7 +150,7 @@ for it = 1 : MaxIt
 
     for i=1:nPop
 
-        fprintf('PARTICLE  NUMBER %d START **********************\n',i);
+        fprintf('T %d   P %d    \n',it,i);
 
         % Select a leader
         leader = SelectLeader(rep,beta);
@@ -172,9 +176,9 @@ for it = 1 : MaxIt
         if rand  <  mu
             % Apply Mutation
             NewSol = pop(i);
-            NewSol.Position= Mutate(pop(i).Position,mu,VarMinF,VarMaxF);
-            NewSol.Cost= CostFunction(NewSol.Position);
-            NewSol.CF  = fesibJudge(NewSol);
+            NewSol.Position = Mutate(pop(i).Position,mu);
+            NewSol.Cost     = CostFunction(NewSol.Position);
+            NewSol.CF       = fesibJudge(NewSol);
 
             %% Update pop(i) with newSol
             if (~Dominates(pop(i),NewSol))

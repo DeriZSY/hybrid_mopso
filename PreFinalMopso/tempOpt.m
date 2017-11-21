@@ -29,5 +29,5 @@ function optima=tempOpt(rep,meanCost)
     end
 
     opts   = opts(k);
-    optima = leaders(1);
+    optima = opts(1);
 end

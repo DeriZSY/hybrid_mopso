@@ -12,7 +12,7 @@ cSum2 = 0.46;
 cEq1  = 0.025;
 cEq2  = 0.3;
 
-itTimes = 1;
+% itTimes = 10;
 % for itt = 1:itTimes
 % 	mopsoTest;
 % 	clc;
