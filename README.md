@@ -35,3 +35,7 @@ derizsy@foxmail.com
 
 *new test on fork*
 *test 2*
+<<<<<<< HEAD
+=======
+*new new test*
+>>>>>>> Dev
