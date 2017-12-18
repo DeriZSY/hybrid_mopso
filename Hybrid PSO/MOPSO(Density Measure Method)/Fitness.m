@@ -1,5 +1,5 @@
 function value = Fitness(x,varMin,varMax)
-	value1 = ZDT1(x);
+	value1 = SPR(x);
 	nVar = numel(x);
 	G = 0;
 	for i = 1:nVar

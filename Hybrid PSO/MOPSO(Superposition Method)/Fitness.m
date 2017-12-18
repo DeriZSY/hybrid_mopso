@@ -1,16 +1,16 @@
 function value = Fitness(x,varMin,varMax)
-	value1 = ZDT1(x);
-	nVar = numel(x);
-	G = 0;
-	for i = 1:nVar
-  		G = G + sqrt((x(i) - max (varMin(i), x(i) ) )^2 +(x(i) - min(x(i) ,  varMax(i)))^2);
-	end
+	value1 = BfK(x);
+	% nVar = numel(x);
+	% G = 0;
+	% for i = 1:nVar
+ %  		G = G + sqrt((x(i) - max (varMin(i), x(i) ) )^2 +(x(i) - min(x(i) ,  varMax(i)))^2);
+	% end
 
-	f1 = value1(1) + G;
-	f2 = value1(2) + G;
-	value = [f1
-	         f2];
-	         
+	% f1 = value1(1) + G;
+	% f2 = value1(2) + G;
+	% value = [f1
+	%          f2];
+	value  = value1;
 end
 	
 	%%%%% BfK Function %%%%%
