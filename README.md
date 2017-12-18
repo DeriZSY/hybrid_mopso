@@ -1,9 +1,9 @@
 # HybridPSODevelopment
 
 ## Update and Notification :
-<br> All the works in this rep are finished as a research assistant of Advanced Manufacturing of Department of Mechanical and Energy Engineering, Southern University of Science and Technology, under the supervise of Professor Xuekun LI and PhD candidate Zhanying CHEN, Institude of Manufacturing Engineering, Tsinghua University.
-<br> Reference literature will be supplied with review later. (when I'm out of endless exams and projects)
-<br> ALL COMPYRIGHTS RESERVED
+<br> All the works in this rep are finished as a research assistant of Advanced Manufacturing of Department of Mechanical and Energy Engineering, Southern University of Science and Technology, under the supervise of Professor Xuekun LI and PhD candidate Zhanying CHEN, Institude of Manufacturing Engineering, Tsinghua University.</br>
+<br> Reference literature will be supplied with review later. (when I'm out of endless exams and projects)</br>
+<br> *ALL COMPYRIGHTS RESERVED*
 
 ---
 ## Depiction
