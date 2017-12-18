@@ -26,16 +26,9 @@ MOPSO using density measure, and improved with vairnt weight and learning factor
 MOPSO using superposition method and basic, non-variant coeeficient.
 
 # Reference
-Original Codes from : https://www.mathworks.com/matlabcentral/fileexchange/52870-multi-objective-particle-swarm-optimization--mopso-
+Very original version of  codes comes from : https://www.mathworks.com/matlabcentral/fileexchange/52870-multi-objective-particle-swarm-optimization--mopso-
 
 More detaied description will be presented in technical document (which by now, may still reamianed unfinished).
 
 You are welcome to contact me for any problems at:
 derizsy@foxmail.com
-
-*new test on fork*
-*test 2*
-<<<<<<< HEAD
-=======
-*new new test*
->>>>>>> Dev
